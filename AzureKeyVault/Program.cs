@@ -10,6 +10,7 @@ namespace AzureKeyVault
     private const string User = "ajfleming1";
     private const string FilePath = "receipt-template.cshtml";
     private const string KeyName = "SupportClients";
+    private const string VaultName = "flkv01";
 
     static void Main()
     {
@@ -29,7 +30,7 @@ namespace AzureKeyVault
       {
         var vaultService = scope.Resolve<IVaultService>();
         var gitHubService = scope.Resolve<IGitHubService>();
-        var gitHubToken = vaultService.GetKey(KeyName);
+        var gitHubToken = vaultService.GetKey(KeyName, VaultName);
         var template = gitHubService.GetRawContentUsingBearerToken(User, Repository, FilePath, gitHubToken);
         Console.WriteLine(template);
       }

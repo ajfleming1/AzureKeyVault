@@ -2,7 +2,7 @@
 
 namespace AzureKeyVault
 {
-  internal class GitHubService : IGitHubService
+  public class GitHubService : IGitHubService
   {
     public string GetRawContentUsingBearerToken(string user, string repository, string filePath, string token)
     {

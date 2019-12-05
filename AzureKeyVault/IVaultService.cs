@@ -1,7 +1,7 @@
 ﻿namespace AzureKeyVault
 {
-  internal interface IVaultService
+    public interface IVaultService
   {
-    string GetKey(string keyName);
+    string GetKey(string keyName, string vaultName);
   }
 }
