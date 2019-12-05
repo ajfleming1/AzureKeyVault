@@ -4,11 +4,11 @@ namespace AzureKeyVault
 {
   internal class GitHubService : IGitHubService
   {
-    public string GetTemplate(string templateFilename, string key)
+    public string GetRawContentUsingBearerToken(string user, string repository, string filePath, string token)
     {
       var client = new WebClient();
-      client.Headers.Add("Authorization", $"bearer {key}");
-      var url = $"https://raw.githubusercontent.com/ajfleming1/support-clients/master/{templateFilename}";
+      client.Headers.Add("Authorization", $"bearer {token}");
+      var url = $"https://raw.githubusercontent.com/{user}/{repository}/master/{filePath}";
       var response = client.DownloadString($"{url}");
 
       return response;

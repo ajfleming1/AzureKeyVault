@@ -2,6 +2,6 @@
 {
   internal interface IGitHubService
   {
-    string GetTemplate(string templateFilename, string key);
+    string GetRawContentUsingBearerToken(string user, string repository, string filePath, string token);
   }
 }
